@@ -25,4 +25,10 @@ export class AuthController {
   verify(@Req() request: Request) {
     return this.authService.verify(request);
   }
+
+  @Post('logout')
+  @HttpCode(HttpStatus.OK)
+  logout(@Req() request: Request, @Res({ passthrough: true }) response: Response) {
+    return this.authService.logout(request, response);
+  }
 }

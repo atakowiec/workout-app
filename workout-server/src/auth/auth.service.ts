@@ -96,4 +96,10 @@ export class AuthService {
       username: request.user.username,
     };
   }
+
+  logout(request: Request, response: Response) {
+    this.clearTokenFromResponse(response);
+
+    this.logger.log(`User [ID:${request.user.id}] ${request.user.username} logged out`);
+  }
 }

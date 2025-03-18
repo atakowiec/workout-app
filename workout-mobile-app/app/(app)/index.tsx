@@ -1,6 +1,7 @@
 import { View } from 'react-native';
-import { ThemedText } from '@/components/ThemedText';
-import { Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
+import ThemedButton from '@/components/ThemedButton';
+import getApi from '@/hooks/api/axios';
 
 export default function Index() {
   return (
@@ -13,7 +14,9 @@ export default function Index() {
           alignItems: 'center',
         }}
       >
-        <ThemedText>Edit app/index.tsx to edit this sc1reen.</ThemedText>
+        <ThemedButton onPress={() => getApi().post('auth/logout').then(() => router.replace('/(login)/login'))}>
+          Logout
+        </ThemedButton>
       </View>
     </>
   );

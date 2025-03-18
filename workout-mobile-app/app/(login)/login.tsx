@@ -28,7 +28,8 @@ export default function Login() {
     getApi()
       .post('auth/login', { username, password })
       .then(() => {
-        router.replace('/(app)/index');
+        // @ts-ignore
+        router.replace('/');
       })
       .catch((err: AxiosError) => {
         if (err.status == 401) {

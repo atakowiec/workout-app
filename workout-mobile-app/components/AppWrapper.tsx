@@ -29,7 +29,6 @@ export default function AppWrapper({ children }: AppWrapperProps) {
 
         dispatch(userActions.setUser(res.data));
       })
-      .catch(e => alert(JSON.stringify(e.message)))
       .finally(() => {
         setAuthLoaded(true);
       });
